@@ -14,6 +14,9 @@ var (
 
 	//Port é a porta que a API vai rodar
 	Port = 0
+
+	//CHAVE PARA ASSINAR O JWT
+	SecretKey []byte
 )
 
 //Load carrega as variaveis de ambiente
@@ -33,4 +36,5 @@ func Load() {
 		os.Getenv("DB_USER"), os.Getenv("DB_PASS"), os.Getenv("DB_NAME"),
 	)
 
+	SecretKey = []byte(os.Getenv("SECRET_KEY"))
 }
